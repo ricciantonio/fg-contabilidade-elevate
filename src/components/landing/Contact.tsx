@@ -96,11 +96,8 @@ export function Contact() {
                 <ContactItem
                   icon={MessageCircle}
                   label="WhatsApp"
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    openWhatsApp();
-                  }}
+                  href={whatsappUrl()}
+                  external
                 >
                   {WHATSAPP_DISPLAY}
                 </ContactItem>
