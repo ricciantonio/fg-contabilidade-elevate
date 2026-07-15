@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Star, MapPin } from "lucide-react";
-import heroImg from "@/assets/hero-office.jpg";
+import logo from "@/assets/fg-logo.jpg";
 import { openWhatsApp } from "@/lib/whatsapp";
 import { Particles } from "./Particles";
 
