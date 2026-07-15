@@ -1,4 +1,5 @@
 import { Phone, MessageCircle, Mail, MapPin, Instagram } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import {
   PHONE_DISPLAY,
   WHATSAPP_DISPLAY,
