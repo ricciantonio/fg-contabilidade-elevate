@@ -21,7 +21,7 @@ function openExternal(url: string) {
 }
 
 export function whatsappUrl(message = "Olá! Gostaria de solicitar atendimento com a FG Contabilidade.") {
-  return `https://api.whatsapp.com/send?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }
 
 export function openWhatsApp(message?: string) {
