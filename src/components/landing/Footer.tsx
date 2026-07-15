@@ -84,7 +84,16 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col items-center justify-between gap-2 text-xs text-white/50 sm:flex-row">
           <p>© 2026 FG Contabilidade. Todos os direitos reservados.</p>
-          <p>Contabilidade em Londrina - PR</p>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/politica-de-privacidade"
+              className="transition-colors hover:text-primary"
+            >
+              Política de Privacidade
+            </Link>
+            <span className="hidden text-white/30 sm:inline">|</span>
+            <p className="hidden sm:block">Contabilidade em Londrina - PR</p>
+          </div>
         </div>
       </div>
     </footer>
