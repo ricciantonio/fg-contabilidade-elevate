@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, MessageCircle, Mail, Instagram, Clock, Loader2, Check } from "lucide-react";
 import {
   openWhatsApp,
+  whatsappUrl,
   PHONE_DISPLAY,
   WHATSAPP_DISPLAY,
   EMAIL,
@@ -95,11 +96,8 @@ export function Contact() {
                 <ContactItem
                   icon={MessageCircle}
                   label="WhatsApp"
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    openWhatsApp();
-                  }}
+                  href={whatsappUrl()}
+                  external
                 >
                   {WHATSAPP_DISPLAY}
                 </ContactItem>
