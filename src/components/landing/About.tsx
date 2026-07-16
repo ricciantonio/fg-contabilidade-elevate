@@ -23,19 +23,15 @@ export function About() {
               <p>
                 A <span className="font-semibold text-white">FG Contabilidade</span> nasceu
                 da união entre <span className="font-semibold text-white">Felipe Garcia</span>{" "}
-                e <span className="font-semibold text-white">Gevanildo Zeferino</span>, dois
-                profissionais apaixonados por contabilidade e comprometidos com o sucesso
-                dos seus clientes.
+                e <span className="font-semibold text-white">Gevanildo Zeferino</span>, com o
+                propósito de oferecer uma contabilidade moderna, estratégica e comprometida
+                com o sucesso de seus clientes.
               </p>
               <p>
-                Combinamos experiência técnica, atendimento próximo e visão estratégica para
-                oferecer soluções contábeis, fiscais e tributárias completas para empresas
-                de Londrina e região.
-              </p>
-              <p>
-                Acreditamos que uma contabilidade bem feita vai muito além de números: é a
-                base para decisões inteligentes, crescimento sustentável e tranquilidade
-                para o empresário focar no que realmente importa — o seu negócio.
+                Mais do que atender às obrigações fiscais, entregamos soluções contábeis que
+                proporcionam segurança, organização e informações confiáveis para apoiar a
+                tomada de decisões e o crescimento sustentável das empresas. Nosso compromisso
+                é atuar com excelência, transparência e confiança em cada atendimento.
               </p>
               <div className="gold-line w-40" />
             </div>

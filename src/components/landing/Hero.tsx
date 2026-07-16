@@ -111,14 +111,15 @@ export function Hero() {
           </div>
 
 
-          <div className="absolute -bottom-4 -left-4 hidden rounded-2xl border border-[rgba(218,165,32,0.3)] bg-black/80 px-5 py-4 backdrop-blur-xl sm:block">
-            <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 place-items-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
-                <Star className="h-5 w-5 fill-black text-black" />
-              </div>
+          <div className="absolute -bottom-4 left-4 right-4 hidden rounded-2xl border border-[rgba(218,165,32,0.3)] bg-black/80 px-5 py-4 backdrop-blur-xl sm:block">
+            <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs text-white/60">Avaliação média</p>
-                <p className="text-sm font-semibold text-white">5.0 · Clientes satisfeitos</p>
+                <p className="text-xs text-white/60">Felipe Garcia</p>
+                <p className="text-sm font-semibold text-white">CRC PR-069513/O-4</p>
+              </div>
+              <div className="text-right">
+                <p className="text-xs text-white/60">Gevanildo Zeferino</p>
+                <p className="text-sm font-semibold text-white">CRC PR-060903/O-9</p>
               </div>
             </div>
           </div>
