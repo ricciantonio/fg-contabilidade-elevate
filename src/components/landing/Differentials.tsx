@@ -1,68 +1,88 @@
-import { Check } from "lucide-react";
-import differentialsImg from "@/assets/differentials.jpg";
+import { TrendingUp, Building2, FileText, ShieldCheck, Users } from "lucide-react";
+import { BrazilMap } from "./BrazilMap";
 import { Reveal } from "./Reveal";
 
-const items = [
-  "Mais de 200 empresas atendidas",
-  "Atendimento rápido",
-  "Equipe especializada",
-  "Precisão nos processos",
-  "Atendimento focado no crescimento do seu negócio",
-  "Transparência",
-  "Compromisso com resultados",
+const stats = [
+  {
+    icon: TrendingUp,
+    value: "+4.5Bi",
+    label: "de receitas apuradas em 2025",
+  },
+  {
+    icon: Building2,
+    value: "+1000",
+    label: "empresas atendidas mensalmente",
+  },
+  {
+    icon: FileText,
+    value: "+5500",
+    label: "folhas de pagamento mensalmente",
+  },
+  {
+    icon: ShieldCheck,
+    value: "+50000",
+    label: "processos de regularização",
+  },
 ];
 
 export function Differentials() {
   return (
     <section id="diferenciais" className="relative py-24 sm:py-32">
-      <div className="mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-20">
-        <Reveal direction="left">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Diferenciais</p>
-          <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Por que escolher a <span className="gold-text">FG Contabilidade?</span>
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-white/65 sm:text-lg">
-            Combinamos experiência, tecnologia e um atendimento próximo para entregar
-            resultados consistentes para o seu negócio.
-          </p>
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
+          {/* LEFT */}
+          <Reveal direction="left">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+              Diferenciais
+            </p>
+            <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+              Por que escolher a{" "}
+              <span className="gold-text">FG Contabilidade?</span>
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-white/65 sm:text-lg">
+              Combinamos experiência, tecnologia e um atendimento próximo para
+              entregar resultados consistentes para seu negócio.
+            </p>
+          </Reveal>
 
-          <ul className="mt-10 space-y-4">
-            {items.map((item, i) => (
-              <Reveal as="li" key={item} direction="up" delay={i * 0.05}>
-                <div className="flex items-start gap-3">
-                  <span
-                    className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full"
-                    style={{ background: "var(--gradient-gold)" }}
-                  >
-                    <Check className="h-3.5 w-3.5 text-black" strokeWidth={3} />
-                  </span>
-                  <span className="text-base text-white/85">{item}</span>
+          {/* CENTER/RIGHT */}
+          <Reveal direction="right" delay={0.15}>
+            <div className="flex flex-col-reverse items-center gap-8 sm:flex-row sm:items-center sm:justify-center lg:justify-end">
+              {/* Black card — left of the map on desktop, below the map on mobile */}
+              <div className="flex w-full max-w-[220px] flex-col items-center justify-center rounded-2xl border border-white/10 bg-black px-6 py-7 text-center shadow-2xl shadow-black/50 sm:w-auto">
+                <Users className="h-8 w-8 text-[#FF9500]" strokeWidth={2} />
+                <p className="mt-3 text-4xl font-bold text-[#FF9500]">+50</p>
+                <p className="mt-1 text-sm font-medium text-white/80">
+                  colaboradores
+                </p>
+              </div>
+
+              {/* Map */}
+              <div className="w-full sm:w-auto">
+                <BrazilMap />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* BOTTOM: 2x2 grid */}
+        <div className="mt-16 grid gap-4 sm:grid-cols-2">
+          {stats.map((stat, i) => (
+            <Reveal key={stat.label} direction="up" delay={0.1 + i * 0.08}>
+              <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-6 text-slate-900 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#FF9500]/10">
+                  <stat.icon className="h-5 w-5 text-[#FF9500]" strokeWidth={2.5} />
                 </div>
-              </Reveal>
-            ))}
-          </ul>
-        </Reveal>
-
-        <Reveal direction="right" delay={0.15}>
-          <div className="relative">
-            <div className="absolute -inset-6 rounded-3xl bg-[var(--gradient-gold-soft)] blur-2xl" aria-hidden />
-            <div className="relative overflow-hidden rounded-3xl border border-[rgba(218,165,32,0.25)] shadow-[var(--shadow-gold)]">
-              <img
-                src={differentialsImg}
-                alt="Gráfico dourado de crescimento representando resultados corporativos"
-                width={1024}
-                height={1024}
-                loading="lazy"
-                decoding="async"
-                className="h-full w-full object-cover"
-              />
-            </div>
-            <div className="absolute -right-4 -bottom-4 hidden rounded-2xl border border-[rgba(218,165,32,0.3)] bg-black/85 px-5 py-4 backdrop-blur-xl sm:block">
-              <p className="text-3xl font-bold gold-text">+200</p>
-              <p className="text-xs text-white/60">empresas atendidas</p>
-            </div>
-          </div>
-        </Reveal>
+                <p className="mt-4 text-2xl font-bold tracking-tight text-slate-900">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-sm font-medium leading-snug text-slate-600">
+                  {stat.label}
+                </p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
