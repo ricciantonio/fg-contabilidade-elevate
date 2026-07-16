@@ -19,8 +19,8 @@ export function About() {
         </div>
 
         <div className="mt-14 flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-10 lg:gap-16">
-          <Reveal direction="up" delay={0.15} className="w-full sm:w-auto">
-            <div className="relative w-full max-w-[400px] sm:w-1/2">
+          <Reveal direction="up" delay={0.15} className="w-full max-w-[400px] shrink-0 sm:w-1/2 sm:max-w-none">
+            <div className="relative">
               <div
                 className="absolute -inset-4 rounded-[2rem] bg-[var(--gradient-gold-soft)] blur-3xl"
                 aria-hidden
