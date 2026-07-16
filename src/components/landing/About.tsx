@@ -1,5 +1,5 @@
 import { Reveal } from "./Reveal";
-import sociosAsset from "@/assets/socios.png.asset.json";
+import sociosAsset from "@/assets/socios-fg.jpg.asset.json";
 
 export function About() {
   return (
