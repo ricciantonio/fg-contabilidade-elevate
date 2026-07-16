@@ -1,10 +1,9 @@
 import { Reveal } from "./Reveal";
-import sociosImg from "@/assets/socios-fg.jpg";
 
 export function About() {
   return (
     <section id="sobre" className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div className="mx-auto max-w-4xl px-5 sm:px-8">
         <div className="text-center">
           <Reveal direction="fade">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
@@ -18,39 +17,7 @@ export function About() {
           </Reveal>
         </div>
 
-        <div className="mt-14 flex flex-col items-start gap-10 sm:flex-row sm:gap-10 lg:gap-16">
-          <Reveal direction="up" delay={0.15} className="w-full shrink-0 sm:max-w-[400px]">
-            <div className="relative">
-              <div
-                className="absolute -inset-4 rounded-[2rem] bg-[var(--gradient-gold-soft)] blur-3xl"
-                aria-hidden
-              />
-              <div className="relative overflow-hidden rounded-3xl border border-[rgba(218,165,32,0.3)] bg-black shadow-[var(--shadow-gold)]">
-                <img
-                  src={sociosImg}
-                  alt="Felipe Garcia e Gevanildo Zeferino, sócios da FG Contabilidade"
-                  loading="lazy"
-                  decoding="async"
-                  className="h-auto w-full max-w-[400px] object-contain"
-                />
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{ boxShadow: "inset 0 0 80px rgba(218,165,32,0.15)" }}
-                />
-              </div>
-              <div className="mt-4 flex justify-between px-2 text-sm text-white/80">
-                <span>
-                  <span className="font-semibold text-white">Felipe Garcia</span>
-                  <span className="block text-xs text-white/50">Sócio-fundador</span>
-                </span>
-                <span className="text-right">
-                  <span className="font-semibold text-white">Gevanildo Zeferino</span>
-                  <span className="block text-xs text-white/50">Sócio-fundador</span>
-                </span>
-              </div>
-            </div>
-          </Reveal>
-
+        <div className="mt-14">
           <Reveal direction="up" delay={0.25}>
             <div className="space-y-5 text-base leading-relaxed text-white/70 sm:text-lg">
               <p>

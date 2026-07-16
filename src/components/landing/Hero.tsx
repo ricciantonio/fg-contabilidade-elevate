@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Star, MapPin } from "lucide-react";
-import logo from "@/assets/fg-logo.jpg";
+import sociosImg from "@/assets/socios-fg.jpg";
 import { openWhatsApp } from "@/lib/whatsapp";
-import { Particles } from "./Particles";
 
 export function Hero() {
   return (
@@ -10,22 +9,6 @@ export function Hero() {
       id="inicio"
       className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:pt-40"
     >
-      <div className="gold-radial pointer-events-none absolute inset-0" aria-hidden />
-      <Particles />
-
-      {/* Logo watermark centered behind the content */}
-      <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-        aria-hidden
-      >
-        <img
-          src={logo}
-          alt=""
-          className="w-[min(90vw,780px)] max-w-none opacity-[0.06] mix-blend-screen select-none"
-          draggable={false}
-        />
-      </div>
-
       <div className="relative mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
 
         <div>
@@ -114,16 +97,15 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="absolute -inset-6 rounded-[2rem] bg-[var(--gradient-gold-soft)] blur-3xl" aria-hidden />
           <div className="relative aspect-square overflow-hidden rounded-3xl border border-[rgba(218,165,32,0.3)] bg-black shadow-[var(--shadow-gold)]">
             <img
-              src={logo}
-              alt="Logotipo FG Contabilidade"
+              src={sociosImg}
+              alt="Felipe Garcia e Gevanildo Zeferino, sócios da FG Contabilidade"
               width={1080}
               height={1350}
               fetchPriority="high"
               decoding="async"
-              className="h-full w-full object-contain p-6 sm:p-10"
+              className="h-full w-full object-cover"
             />
             <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{ boxShadow: "inset 0 0 80px rgba(218,165,32,0.15)" }} />
           </div>
