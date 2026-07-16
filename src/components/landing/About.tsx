@@ -1,5 +1,5 @@
 import { Reveal } from "./Reveal";
-import sociosAsset from "@/assets/socios-fg.jpg.asset.json";
+import sociosImg from "@/assets/socios-fg.jpg";
 
 export function About() {
   return (
@@ -27,7 +27,7 @@ export function About() {
               />
               <div className="relative overflow-hidden rounded-3xl border border-[rgba(218,165,32,0.3)] bg-black shadow-[var(--shadow-gold)]">
                 <img
-                  src={sociosAsset.url}
+                  src={sociosImg}
                   alt="Felipe Garcia e Gevanildo Zeferino, sócios da FG Contabilidade"
                   loading="lazy"
                   decoding="async"

@@ -1,30 +1,25 @@
-## Objetivo
-Criar uma nova rota `/politica-de-privacidade` com o conteúdo fornecido pelo usuário, formatado e estilizado de acordo com a identidade visual do site (fundo preto, detalhes dourados, tipografia Inter), e adicionar um link no rodapé apontando para essa página.
+## Diagnóstico
 
-## Escopo
-- **Nova rota:** `src/routes/politica-de-privacidade.tsx` (TanStack Router converte o ponto em `/`, gerando a URL `/politica-de-privacidade`).
-- **Layout:** reutilizar o `Navbar` e o `Footer` da landing para manter consistência de navegação.
-- **Estilo:** fundo `bg-background`, texto branco, títulos com destaque dourado (`gold-text`), seções espaçadas, container centralizado `max-w-4xl`.
-- **Metadados:** `head()` com title, description, og:title, og:description e canonical.
-- **Rodapé:** adicionar link "Política de Privacidade" no `Footer` apontando para `/politica-de-privacidade` usando `<Link>` do TanStack Router.
+- A imagem no `<img>` aponta pra `/__l5e/assets-v1/.../socios-fg.jpg` (CDN de assets do Lovable).
+- Testes do meu lado (curl no host do preview + headless browser) retornam **HTTP 200** e a imagem renderiza corretamente.
+- Mesmo assim, no seu navegador aparece **ícone de imagem quebrada**, mesmo após hard reload, só no preview.
+- A outra imagem do site (`fg-logo.jpg`) carrega normal — e ela é servida direto pelo Vite a partir de `src/assets/`, sem passar pelo `/__l5e/`.
 
-## Conteúdo da página
-Texto fornecido pelo usuário será estruturado em:
-- Cabeçalho com título "Política de Privacidade" e data de atualização.
-- Seções numeradas de 1 a 8, conforme o conteúdo enviado.
-- Listas de itens onde aplicável (dados coletados, direitos do titular, etc.).
-- Informações de contato destacadas no final.
+Ou seja: o problema é específico da rota `/__l5e/` no seu ambiente (provavelmente extensão do navegador, proxy corporativo, ou algum filtro de rede bloqueando esse path). A correção mais confiável é parar de depender do CDN pra essa foto e servi-la igual à logo.
 
-## Arquivos alterados
-1. `src/routes/politica-de-privacidade.tsx` — novo arquivo.
-2. `src/components/landing/Footer.tsx` — adicionar link "Política de Privacidade".
+## Mudanças
 
-## Fora de escopo
-- Não haverá alteração em backend, banco de dados ou formulários.
-- Não serão geradas imagens ou assets novos.
+1. Baixar o binário atual do CDN (`socios-fg.jpg`, 159 KB) e salvar em `src/assets/socios-fg.jpg`.
+2. Em `src/components/landing/About.tsx`:
+   - Trocar `import sociosAsset from "@/assets/socios-fg.jpg.asset.json"` por `import sociosImg from "@/assets/socios-fg.jpg"`.
+   - No `<img>`, trocar `src={sociosAsset.url}` por `src={sociosImg}`.
+3. Remover o pointer que não é mais necessário: `lovable-assets delete --file src/assets/socios-fg.jpg.asset.json` (remove do CDN e apaga o `.asset.json`).
+4. Rodar `bun run build` e um screenshot rápido pra confirmar que a foto continua aparecendo.
 
-## Validação
-Após implementação, verificar se:
-- A rota `/politica-de-privacidade` carrega sem erros.
-- O link no rodapé navega corretamente.
-- O build/typecheck passa sem falhas.
+Nenhuma outra parte da página é alterada — mesmo layout, mesmo tamanho (`max-w-[400px] object-contain`), mesmas legendas.
+
+## Detalhes técnicos
+
+- `src/assets/*.jpg` importado via ESM vira uma URL hash-eada servida pelo próprio app (ex.: `/assets/socios-fg-<hash>.jpg` em produção, `/src/assets/socios-fg.jpg` em dev) — mesmo caminho que a `fg-logo.jpg` já usa com sucesso.
+- Isso mantém o arquivo dentro do bundle do projeto (159 KB), o que é aceitável já que a logo (também ~JPG) já é servida assim.
+- Se preferir manter no CDN em vez de trazer pro repo, uma alternativa seria re-upload gerando um novo `asset_id` — mas isso não resolve caso o bloqueio seja no path `/__l5e/*` genérico. Por isso a proposta padrão é trazer o arquivo pro repo.
