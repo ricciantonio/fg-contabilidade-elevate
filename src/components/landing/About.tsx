@@ -18,7 +18,7 @@ export function About() {
           </Reveal>
         </div>
 
-        <div className="mt-14 flex flex-col items-center gap-8 sm:flex-row sm:items-start sm:gap-10 lg:gap-16">
+        <div className="mt-14 flex flex-row items-start gap-6 sm:gap-10 lg:gap-16">
           <Reveal direction="up" delay={0.15} className="w-1/2 shrink-0 sm:w-full sm:max-w-[400px]">
             <div className="relative">
               <div
