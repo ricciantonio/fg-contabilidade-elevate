@@ -48,7 +48,7 @@ export function Differentials() {
           {/* CENTER/RIGHT */}
           <Reveal direction="right" delay={0.15}>
             <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:justify-center lg:justify-end">
-              {/* Black card */}
+              {/* Black card — left of the map on desktop, below on mobile */}
               <div className="order-2 flex w-full max-w-[220px] flex-col items-center justify-center rounded-2xl border border-white/10 bg-black px-6 py-7 text-center shadow-2xl shadow-black/50 sm:order-1 sm:w-auto">
                 <Users className="h-8 w-8 text-[#FF9500]" strokeWidth={2} />
                 <p className="mt-3 text-4xl font-bold text-[#FF9500]">+50</p>
@@ -66,7 +66,7 @@ export function Differentials() {
         </div>
 
         {/* BOTTOM: 2x2 grid */}
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-4 sm:grid-cols-2">
           {stats.map((stat, i) => (
             <Reveal key={stat.label} direction="up" delay={0.1 + i * 0.08}>
               <div className="flex h-full flex-col rounded-2xl border border-black/5 bg-white p-6 text-slate-900 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1">
