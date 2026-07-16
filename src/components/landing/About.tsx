@@ -18,8 +18,8 @@ export function About() {
           </Reveal>
         </div>
 
-        <div className="mt-14 flex flex-row items-start gap-6 sm:gap-10 lg:gap-16">
-          <Reveal direction="up" delay={0.15} className="w-1/2 shrink-0 sm:w-full sm:max-w-[400px]">
+        <div className="mt-14 flex flex-col items-start gap-10 sm:flex-row sm:gap-10 lg:gap-16">
+          <Reveal direction="up" delay={0.15} className="w-full shrink-0 sm:max-w-[400px]">
             <div className="relative">
               <div
                 className="absolute -inset-4 rounded-[2rem] bg-[var(--gradient-gold-soft)] blur-3xl"
@@ -31,7 +31,7 @@ export function About() {
                   alt="Felipe Garcia e Gevanildo Zeferino, sócios da FG Contabilidade"
                   loading="lazy"
                   decoding="async"
-                  className="aspect-[4/3] w-full object-cover"
+                  className="h-auto w-full max-w-[400px] object-contain"
                 />
                 <div
                   className="pointer-events-none absolute inset-0"
