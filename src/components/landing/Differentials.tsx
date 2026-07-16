@@ -47,9 +47,9 @@ export function Differentials() {
 
           {/* CENTER/RIGHT */}
           <Reveal direction="right" delay={0.15}>
-            <div className="flex flex-col items-center gap-8 sm:flex-row sm:items-center sm:justify-center lg:justify-end">
-              {/* Black card — left of the map on desktop, below on mobile */}
-              <div className="order-2 flex w-full max-w-[220px] flex-col items-center justify-center rounded-2xl border border-white/10 bg-black px-6 py-7 text-center shadow-2xl shadow-black/50 sm:order-1 sm:w-auto">
+            <div className="flex flex-col-reverse items-center gap-8 sm:flex-row sm:items-center sm:justify-center lg:justify-end">
+              {/* Black card — left of the map on desktop, below the map on mobile */}
+              <div className="flex w-full max-w-[220px] flex-col items-center justify-center rounded-2xl border border-white/10 bg-black px-6 py-7 text-center shadow-2xl shadow-black/50 sm:w-auto">
                 <Users className="h-8 w-8 text-[#FF9500]" strokeWidth={2} />
                 <p className="mt-3 text-4xl font-bold text-[#FF9500]">+50</p>
                 <p className="mt-1 text-sm font-medium text-white/80">
@@ -58,7 +58,7 @@ export function Differentials() {
               </div>
 
               {/* Map */}
-              <div className="order-1 w-full sm:order-2 sm:w-auto">
+              <div className="w-full sm:w-auto">
                 <BrazilMap />
               </div>
             </div>
