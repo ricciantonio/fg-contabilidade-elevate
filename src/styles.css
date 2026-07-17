@@ -126,6 +126,10 @@
     radial-gradient(ellipse 50% 40% at 90% 80%, rgba(184, 134, 11, 0.08), transparent 60%);
 }
 
+@utility hero-glow {
+  animation: hero-glow-pulse 8s ease-in-out infinite;
+}
+
 @keyframes hero-glow-pulse {
   0%, 100% {
     opacity: 0.55;
