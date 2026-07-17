@@ -19,7 +19,7 @@ const stats: Stat[] = [
     end: 500,
     prefix: "+",
     suffix: "Mi",
-    decimals: 1,
+
     label: "de receitas apuradas em 2025",
   },
   {
