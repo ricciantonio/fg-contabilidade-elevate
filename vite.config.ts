@@ -12,4 +12,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Override the default Cloudflare Workers preset when deploying to Vercel.
+  // Set NITRO_PRESET=vercel in the Vercel project's Environment Variables (Production + Preview).
+  // Without this the Vercel Function fails with `EnvFileReadError` / FUNCTION_INVOCATION_FAILED.
+  nitro: {
+    preset: process.env.NITRO_PRESET,
+  },
 });
