@@ -12,6 +12,7 @@ import { Contact } from "@/components/landing/Contact";
 import { MapEmbed } from "@/components/landing/MapEmbed";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
+import { ScrollFade } from "@/components/landing/ScrollFade";
 
 const TITLE = "FG Contabilidade | Contabilidade em Londrina - PR";
 const DESCRIPTION =
@@ -75,16 +76,16 @@ function LandingPage() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Benefits />
-        <Differentials />
-        <Services />
-        <InvoiceRequests />
-        <Institutional />
-        <Testimonials />
-        <Contact />
-        <MapEmbed />
-        <FinalCTA />
+        <ScrollFade><About /></ScrollFade>
+        <ScrollFade><Benefits /></ScrollFade>
+        <ScrollFade><Differentials /></ScrollFade>
+        <ScrollFade><Services /></ScrollFade>
+        <ScrollFade><InvoiceRequests /></ScrollFade>
+        <ScrollFade><Institutional /></ScrollFade>
+        <ScrollFade><Testimonials /></ScrollFade>
+        <ScrollFade><Contact /></ScrollFade>
+        <ScrollFade><MapEmbed /></ScrollFade>
+        <ScrollFade><FinalCTA /></ScrollFade>
       </main>
       <Footer />
     </div>
