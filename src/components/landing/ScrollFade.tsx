@@ -19,11 +19,16 @@ export function ScrollFade({
   const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(true);
   const [direction, setDirection] = useState<"down" | "up">("down");
+  const [disabled, setDisabled] = useState(true);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    const update = () => setDisabled(reduce || mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    if (reduce) return () => mq.removeEventListener("change", update);
 
     let lastY = window.scrollY;
     let ticking = false;
@@ -40,7 +45,10 @@ export function ScrollFade({
       });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      mq.removeEventListener("change", update);
+    };
   }, []);
 
   useEffect(() => {
@@ -54,16 +62,16 @@ export function ScrollFade({
     return () => obs.disconnect();
   }, []);
 
-  const visible = inView && direction === "down";
+  const visible = disabled || (inView && direction === "down");
 
   return (
     <Tag
       ref={ref as never}
       className={className}
       style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(8px)",
-        transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+        opacity: visible ? 1 : 0.5,
+        transform: visible ? "translateY(0)" : "translateY(6px)",
+        transition: "opacity 0.4s ease-out, transform 0.4s ease-out",
         willChange: "opacity, transform",
       }}
     >
