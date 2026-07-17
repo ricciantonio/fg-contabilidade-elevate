@@ -105,7 +105,7 @@ export function Contact() {
                 <ContactItem icon={Clock} label="Horário">
                   Segunda a Sexta
                   <br />
-                  08h às 17h
+                  08h às 18h
                 </ContactItem>
               </ul>
             </div>
