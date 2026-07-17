@@ -64,7 +64,7 @@ export function Contact() {
           </Reveal>
           <Reveal direction="up" delay={0.1}>
             <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              Vamos <span className="gold-text">conversar?</span>
+              Fale <span className="gold-text">com nossos especialistas?</span>
             </h2>
           </Reveal>
         </div>
@@ -93,12 +93,7 @@ export function Contact() {
                 <ContactItem icon={Phone} label="Telefone" href={`tel:+554330670793`}>
                   {PHONE_DISPLAY}
                 </ContactItem>
-                <ContactItem
-                  icon={MessageCircle}
-                  label="WhatsApp"
-                  href={whatsappUrl()}
-                  external
-                >
+                <ContactItem icon={MessageCircle} label="WhatsApp" href={whatsappUrl()} external>
                   {WHATSAPP_DISPLAY}
                 </ContactItem>
                 <ContactItem icon={Mail} label="E-mail" href={`mailto:${EMAIL}`}>
@@ -130,13 +125,30 @@ export function Contact() {
                   <input {...register("name")} className={inputCls} placeholder="Seu nome" autoComplete="name" />
                 </Field>
                 <Field label="Empresa" error={errors.company?.message}>
-                  <input {...register("company")} className={inputCls} placeholder="Nome da empresa" autoComplete="organization" />
+                  <input
+                    {...register("company")}
+                    className={inputCls}
+                    placeholder="Nome da empresa"
+                    autoComplete="organization"
+                  />
                 </Field>
                 <Field label="Telefone" error={errors.phone?.message}>
-                  <input {...register("phone")} className={inputCls} placeholder="(00) 00000-0000" inputMode="tel" autoComplete="tel" />
+                  <input
+                    {...register("phone")}
+                    className={inputCls}
+                    placeholder="(00) 00000-0000"
+                    inputMode="tel"
+                    autoComplete="tel"
+                  />
                 </Field>
                 <Field label="E-mail" error={errors.email?.message}>
-                  <input {...register("email")} className={inputCls} placeholder="voce@empresa.com" type="email" autoComplete="email" />
+                  <input
+                    {...register("email")}
+                    className={inputCls}
+                    placeholder="voce@empresa.com"
+                    type="email"
+                    autoComplete="email"
+                  />
                 </Field>
                 <Field label="Mensagem" error={errors.message?.message} className="sm:col-span-2">
                   <textarea
