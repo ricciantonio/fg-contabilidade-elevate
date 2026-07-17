@@ -135,7 +135,12 @@ export function Services() {
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <Reveal key={s.title} direction="up" delay={i * 0.06}>
+            <Reveal
+              key={s.title}
+              direction={i % 2 === 0 ? "left" : "right"}
+              duration={0.6}
+              delay={(i % 3) * 0.15}
+            >
               <motion.button
                 type="button"
                 onClick={() => setSelected(s)}
