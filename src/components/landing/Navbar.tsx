@@ -38,9 +38,9 @@ export function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
         <a href="#inicio" className="group flex items-center py-1">
           <img
-            src="/logo-fg.png"
+            src={fgLogo.url}
             alt="FG Contabilidade"
-            className="h-10 w-auto object-contain sm:h-12 lg:h-14"
+            className="h-12 w-auto object-contain sm:h-14 lg:h-16"
           />
         </a>
 
