@@ -6,6 +6,8 @@
 
 @theme inline {
   --font-sans: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-playfair: "Playfair Display", serif;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
