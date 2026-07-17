@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 const markers = [
   { cx: 520, cy: 720, label: "SP" },
   { cx: 560, cy: 700, label: "RJ" },
@@ -15,9 +17,13 @@ const markers = [
   { cx: 620, cy: 360, label: "MA" },
 ];
 
-export function BrazilMap() {
+interface BrazilMapProps {
+  className?: string;
+}
+
+export function BrazilMap({ className }: BrazilMapProps) {
   return (
-    <div className="relative w-full max-w-[520px]">
+    <div className={cn("relative w-full", className)}>
       <svg
         viewBox="0 0 1000 1000"
         fill="none"
