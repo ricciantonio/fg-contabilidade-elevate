@@ -110,7 +110,7 @@ export function Hero() {
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="relative aspect-square overflow-hidden rounded-3xl border border-[rgba(218,165,32,0.3)] bg-black shadow-[var(--shadow-gold)]">
+          <div className="relative aspect-square overflow-hidden rounded-3xl border border-[rgba(218,165,32,0.5)] bg-black ring-1 ring-[rgba(218,165,32,0.35)] shadow-[0_0_100px_rgba(218,165,32,0.4),0_20px_60px_-20px_rgba(218,165,32,0.5)]">
             <img
               src={sociosImg}
               alt="Felipe Garcia e Gevanildo Zeferino, sócios da FG Contabilidade"

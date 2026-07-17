@@ -1,33 +1,43 @@
 ## Objetivo
-Criar um efeito de luz dourada animada e pulsante nos cantos da seção Hero, reforçando a identidade premium preto + dourado do site.
 
-## O que será feito
+Substituir o glow atual (4 cantos pulsantes) por um efeito ambiente cinematográfico no Hero, inspirado no site da Ingrid Tenorio — mas com identidade própria da FG (dourado, não laranja) e composição diferente para não parecer cópia.
 
-1. **Criar componente `HeroGlow.tsx`**
-   - Local: `src/components/landing/HeroGlow.tsx`
-   - Quatro blocos de gradiente radial posicionados nos cantos (top-left, top-right, bottom-left, bottom-right).
-   - Cores na paleta dourada (`#daa520`, `#b8860b`) com opacidade baixa para não competir com o conteúdo.
-   - Animação de pulso contínuo com duração longa (~6-10s) e fases deslocadas entre os cantos para efeito orgânico.
+## Referência x nossa versão
 
-2. **Adicionar keyframes no `src/styles.css`**
-   - Keyframe `hero-glow-pulse` que alterna opacidade e escala sutilmente.
-   - Aplicado via utility `.animate-hero-glow`.
-   - Respeita `prefers-reduced-motion`: se o usuário tiver redução de movimento, a animação é desativada.
+**Ingrid (referência):**
+- Halo laranja concentrado atrás da foto (direita)
+- Vignette escuro à esquerda
+- Moldura fina laranja ao redor da foto com glow externo
 
-3. **Integrar no `Hero.tsx`**
-   - Inserir `<HeroGlow />` como primeiro filho da `<section>`, com `absolute inset-0 -z-10 pointer-events-none`.
-   - Manter a marca d'água da logo e a foto dos sócios sem alterações.
+**FG (nossa versão — diferente):**
+- Halo dourado **atrás e ao redor** da foto dos sócios (lado direito), com falloff radial suave
+- Segundo glow dourado mais discreto **abaixo do CTA à esquerda**, criando eixo diagonal (referência tem só 1 foco; nós temos 2 assimétricos)
+- Vignette preto nas bordas superior e inferior para reforçar profundidade
+- Moldura da foto com **borda dourada sutil + shadow externo dourado** (glow envolvendo o card da foto)
+- Sem pulso agressivo — animação de "breathing" muito lenta (10-12s), opacidade variando pouco, para dar vida sem distrair
 
-4. **Verificar responsividade**
-   - Ajustar tamanho/intensidade dos glows para mobile (menores e mais suaves) e desktop.
+## O que vai mudar
 
-## Entregáveis
-- `src/components/landing/HeroGlow.tsx`
-- Atualização de `src/styles.css` com keyframes e utility
-- Atualização de `src/components/landing/Hero.tsx`
+1. **`src/components/landing/HeroGlow.tsx`** — reescrever:
+   - Remover os 4 blocos de canto
+   - Adicionar 1 halo grande atrás da área da foto (direita, ~60vw, blur alto, dourado quente `rgba(218,165,32,...)`)
+   - Adicionar 1 halo secundário menor abaixo-esquerda, para equilibrar
+   - Adicionar vignette top/bottom via gradiente linear preto
+   - Animação `hero-glow-breathe` lenta (opacidade 0.7↔1.0, sem scale exagerado)
+
+2. **`src/styles.css`**:
+   - Substituir keyframe `hero-glow-pulse` por `hero-glow-breathe` (mais sutil)
+   - Manter registro em `@theme inline`
+
+3. **`src/components/landing/Hero.tsx`**:
+   - No wrapper da foto dos sócios: adicionar `ring-1 ring-gold/40` + `shadow-[0_0_80px_rgba(218,165,32,0.35)]` para o glow ao redor do card
+   - Manter `<HeroGlow />` no topo da section
 
 ## Critérios de aceitação
-- Hero exibe glows dourados sutis pulsando nos cantos.
-- Animação é suave e não distrai do conteúdo.
-- Funciona em desktop e mobile.
-- Respeita `prefers-reduced-motion`.
+
+- Hero tem contraste dramático: laterais escuras, foto e CTA "iluminados" por luz dourada quente
+- Foto dos sócios tem moldura com glow dourado externo
+- Efeito é diferente da Ingrid: dois focos assimétricos + moldura brilhante (Ingrid tem 1 foco)
+- Animação é lenta e sutil, não distrai a leitura
+- Respeita `prefers-reduced-motion`
+- Funciona em mobile e desktop
