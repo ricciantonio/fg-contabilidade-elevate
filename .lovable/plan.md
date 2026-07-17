@@ -1,20 +1,19 @@
-## Plano de correção
+## Plano: adicionar Playfair Display
 
-1. **Remover a dependência da configuração manual**
-   - Ajustar `vite.config.ts` para selecionar automaticamente o preset `vercel` quando o build estiver rodando na Vercel, mantendo o preset padrão no Lovable.
-   - Evitar que uma variável `NITRO_PRESET` ausente ou vazia gere um artefato incompatível.
+Não posso colar o CSS exatamente como enviado — o `@import url('https://fonts.googleapis.com/...')` em `src/styles.css` quebra o build do Tailwind v4 (Lightning CSS tenta resolver a URL como arquivo local e o preview fica sem estilos). O resultado visual é o mesmo carregando a fonte via `<link>` no head.
 
-2. **Revisar a entrada SSR**
-   - Manter o wrapper atual de erros, mas garantir que a assinatura/exportação usada seja compatível com o adaptador gerado para Vercel.
-   - Preservar logs do erro original para que futuros crashes apareçam nos Runtime Logs, em vez de somente `FUNCTION_INVOCATION_FAILED`.
+### Mudanças
 
-3. **Validar o build no mesmo alvo da Vercel**
-   - Gerar o build com o ambiente da Vercel simulado.
-   - Inspecionar o artefato de saída, o entrypoint da função e as referências a arquivos `.env` para confirmar que não há leitura de arquivo inexistente no runtime.
+1. **`src/routes/__root.tsx`** — adicionar nos `links` do `head()`:
+   - `preconnect` para `https://fonts.googleapis.com`
+   - `preconnect` para `https://fonts.gstatic.com` (crossOrigin anonymous)
+   - `stylesheet` para `https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap`
+   (Preconnects do Google Fonts provavelmente já existem — reutilizo.)
 
-4. **Verificar a aplicação**
-   - Executar a saída produzida localmente e testar a rota `/` e os assets principais.
-   - Confirmar resposta HTTP válida e ausência de crash na inicialização.
+2. **`src/styles.css`** — aplicar o conteúdo enviado, **sem** a linha `@import url(...Playfair...)`. Isso adiciona apenas o token `--font-playfair: "Playfair Display", serif;` dentro de `@theme inline`, habilitando a utility `font-playfair` no Tailwind.
 
-5. **Orientar o redeploy**
-   - Informar exatamente quais configurações de Build/Output devem permanecer na Vercel e solicitar um redeploy sem cache após a correção.
+Resto do arquivo permanece idêntico ao enviado.
+
+### Uso
+
+Depois disso, aplicar Playfair em qualquer elemento com `className="font-playfair"` (ex.: headings do Hero, About). Me diga se quer que eu já troque headings específicos para Playfair.
