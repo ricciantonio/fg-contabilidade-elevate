@@ -3,6 +3,7 @@ import { ArrowRight, MessageCircle, Star, MapPin } from "lucide-react";
 import sociosImg from "@/assets/socios-fg.jpg";
 import fgLogo from "@/assets/fg-logo.jpg.asset.json";
 import { openWhatsApp } from "@/lib/whatsapp";
+import { HeroGlow } from "./HeroGlow";
 
 export function Hero() {
   return (
@@ -10,6 +11,7 @@ export function Hero() {
       id="inicio"
       className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:pt-40"
     >
+      <HeroGlow />
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-30 sm:opacity-25"
         style={{
