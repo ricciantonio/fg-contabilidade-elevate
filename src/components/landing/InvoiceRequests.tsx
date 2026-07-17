@@ -25,12 +25,12 @@ export function InvoiceRequests() {
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Notas Fiscais</p>
-                  <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+                  <h2 className="font-playfair mt-2 text-2xl font-bold text-white sm:text-3xl">
                     Solicitações de Notas Fiscais
                   </h2>
                   <p className="mt-3 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
-                    Atendemos solicitações de segunda a sexta-feira, das 08h às 17h. Solicitações
-                    realizadas fora desse horário serão registradas e processadas no próximo dia útil.
+                    Atendemos solicitações de segunda a sexta-feira, das 08h às 17h. Solicitações realizadas fora desse
+                    horário serão registradas e processadas no próximo dia útil.
                   </p>
                 </div>
               </div>

@@ -48,7 +48,7 @@ export function Differentials() {
           <div className="flex flex-col justify-center">
             <Reveal direction="right" delay={0.1}>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Diferenciais</p>
-              <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
+              <h2 className="font-playfair mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
                 Números que <span className="gold-text">comprovam</span> nossa experiência
               </h2>
             </Reveal>

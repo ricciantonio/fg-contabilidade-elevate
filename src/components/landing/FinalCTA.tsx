@@ -20,7 +20,7 @@ export function FinalCTA() {
               aria-hidden
             />
             <div className="relative mx-auto max-w-3xl">
-              <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+              <h2 className="font-playfair text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
                 Vamos cuidar da contabilidade da sua empresa?
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-black/80 sm:text-lg">

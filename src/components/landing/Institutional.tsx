@@ -9,7 +9,7 @@ export function Institutional() {
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Nossa missão</p>
         </Reveal>
         <Reveal direction="up" delay={0.1}>
-          <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+          <h2 className="font-playfair mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
             FG <span className="gold-text">Contabilidade</span>
           </h2>
           <p className="mt-4 text-lg font-medium text-white/85 sm:text-xl">
@@ -22,15 +22,14 @@ export function Institutional() {
             <div className="rounded-2xl border border-[rgba(218,165,32,0.2)] bg-white/[0.02] p-6 text-left">
               <Target className="h-6 w-6 text-primary" />
               <p className="mt-4 text-sm leading-relaxed text-white/75">
-                Atendimento focado no crescimento do seu negócio. Conte com a FG Contabilidade
-                para cuidar da sua empresa como se fosse nossa.
+                Atendimento focado no crescimento do seu negócio. Conte com a FG Contabilidade para cuidar da sua
+                empresa como se fosse nossa.
               </p>
             </div>
             <div className="rounded-2xl border border-[rgba(218,165,32,0.2)] bg-white/[0.02] p-6 text-left">
               <Rocket className="h-6 w-6 text-primary" />
               <p className="mt-4 text-sm leading-relaxed text-white/75">
-                Nossa missão é oferecer tranquilidade para que você tenha tempo de fazer sua
-                empresa crescer.
+                Nossa missão é oferecer tranquilidade para que você tenha tempo de fazer sua empresa crescer.
               </p>
             </div>
           </div>

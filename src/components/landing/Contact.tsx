@@ -63,7 +63,7 @@ export function Contact() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Contato</p>
           </Reveal>
           <Reveal direction="up" delay={0.1}>
-            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h2 className="font-playfair mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
               Fale <span className="gold-text">com nossos especialistas</span>
             </h2>
           </Reveal>
