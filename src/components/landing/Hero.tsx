@@ -122,15 +122,15 @@ export function Hero() {
           </div>
 
 
-          <div className="absolute -bottom-4 left-4 right-4 hidden rounded-2xl border border-[rgba(218,165,32,0.3)] bg-black/80 px-5 py-4 backdrop-blur-xl sm:block">
-            <div className="flex items-center justify-between">
-              <div>
+          <div className="mt-4 rounded-2xl border border-[rgba(218,165,32,0.3)] bg-black/80 px-4 py-4 backdrop-blur-xl sm:absolute sm:-bottom-4 sm:left-4 sm:right-4 sm:mt-0 sm:px-5">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              <div className="min-w-0">
                 <p className="text-xs text-white/60">Felipe Garcia</p>
-                <p className="text-sm font-semibold text-white">CRC PR-069513/O-4</p>
+                <p className="whitespace-nowrap text-sm font-semibold text-white">CRC PR-069513/O-4</p>
               </div>
-              <div className="text-right">
+              <div className="min-w-0 sm:text-right">
                 <p className="text-xs text-white/60">Gevanildo Zeferino</p>
-                <p className="text-sm font-semibold text-white">CRC PR-060903/O-9</p>
+                <p className="whitespace-nowrap text-sm font-semibold text-white">CRC PR-060903/O-9</p>
               </div>
             </div>
           </div>
