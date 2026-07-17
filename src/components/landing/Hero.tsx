@@ -7,10 +7,7 @@ import { HeroGlow } from "./HeroGlow";
 
 export function Hero() {
   return (
-    <section
-      id="inicio"
-      className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:pt-40"
-    >
+    <section id="inicio" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:pt-40">
       <HeroGlow />
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-30 sm:opacity-25"
@@ -23,7 +20,6 @@ export function Hero() {
         aria-hidden="true"
       />
       <div className="relative mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
-
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -59,9 +55,8 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="mt-4 max-w-xl text-base leading-relaxed text-white/60"
           >
-            Cuidamos da contabilidade da sua empresa para que você possa focar no que
-            realmente importa: crescer o seu negócio com segurança, organização e
-            tranquilidade.
+            Cuidamos da contabilidade da sua empresa para que você possa focar no que realmente importa: crescer o seu
+            negócio com segurança, organização e tranquilidade.
           </motion.p>
 
           <motion.div
@@ -72,7 +67,7 @@ export function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(218,165,32,0.3)] bg-black/40 px-4 py-2 text-sm text-white/90 backdrop-blur-sm">
               <Star className="h-4 w-4 fill-primary text-primary" />
-              Mais de 200 empresas atendidas
+              Mais de 250 empresas atendidas
             </span>
             <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(218,165,32,0.3)] bg-black/40 px-4 py-2 text-sm text-white/90 backdrop-blur-sm">
               <MapPin className="h-4 w-4 text-primary" />
@@ -120,9 +115,11 @@ export function Hero() {
               decoding="async"
               className="h-full w-full object-cover"
             />
-            <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{ boxShadow: "inset 0 0 80px rgba(218,165,32,0.15)" }} />
+            <div
+              className="pointer-events-none absolute inset-0 rounded-3xl"
+              style={{ boxShadow: "inset 0 0 80px rgba(218,165,32,0.15)" }}
+            />
           </div>
-
 
           <div className="mt-4 rounded-2xl border border-[rgba(218,165,32,0.3)] bg-black/80 px-4 py-4 backdrop-blur-xl sm:absolute sm:-bottom-4 sm:left-4 sm:right-4 sm:mt-0 sm:px-5">
             <div className="flex flex-nowrap items-center justify-between gap-2 sm:gap-4">

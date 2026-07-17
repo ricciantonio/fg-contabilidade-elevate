@@ -24,8 +24,8 @@ export function FinalCTA() {
                 Vamos cuidar da contabilidade da sua empresa?
               </h2>
               <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-black/80 sm:text-lg">
-                Mais de 200 empresas já confiam na FG Contabilidade para manter seus negócios
-                organizados, seguros e preparados para crescer.
+                Mais de 250 empresas já confiam na FG Contabilidade para manter seus negócios organizados, seguros e
+                preparados para crescer.
               </p>
               <div className="mt-8 flex flex-wrap justify-center gap-3">
                 <button
