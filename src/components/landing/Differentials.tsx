@@ -1,26 +1,49 @@
 import { TrendingUp, Building2, FileText, ShieldCheck } from "lucide-react";
 import { BrazilMap } from "./BrazilMap";
 import { Reveal } from "./Reveal";
+import { CountUp } from "./CountUp";
 
-const stats = [
+type Stat = {
+  icon: typeof TrendingUp;
+  end: number;
+  prefix: string;
+  suffix: string;
+  decimals?: number;
+  separator?: boolean;
+  label: string;
+};
+
+const stats: Stat[] = [
   {
     icon: TrendingUp,
-    value: "+4.5Bi",
+    end: 4.5,
+    prefix: "+",
+    suffix: "Bi",
+    decimals: 1,
     label: "de receitas apuradas em 2025",
   },
   {
     icon: Building2,
-    value: "+200",
+    end: 1000,
+    prefix: "+",
+    suffix: "",
+    separator: true,
     label: "empresas atendidas mensalmente",
   },
   {
     icon: FileText,
-    value: "+5500",
+    end: 5500,
+    prefix: "+",
+    suffix: "",
+    separator: true,
     label: "folhas de pagamento mensalmente",
   },
   {
     icon: ShieldCheck,
-    value: "+50000",
+    end: 50000,
+    prefix: "+",
+    suffix: "",
+    separator: true,
     label: "processos de regularização",
   },
 ];
