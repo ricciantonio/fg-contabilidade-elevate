@@ -10,7 +10,6 @@ export function HeroGlow() {
         style={{
           background:
             "radial-gradient(circle, rgba(255,215,100,0.85) 0%, rgba(218,165,32,0.55) 25%, rgba(184,134,11,0.25) 50%, transparent 70%)",
-          animation: "hero-glow-pulse 8s ease-in-out infinite",
           animationDelay: "0s",
         }}
       />
@@ -21,7 +20,6 @@ export function HeroGlow() {
         style={{
           background:
             "radial-gradient(circle, rgba(255,215,100,0.8) 0%, rgba(218,165,32,0.5) 25%, rgba(184,134,11,0.2) 50%, transparent 70%)",
-          animation: "hero-glow-pulse 8s ease-in-out infinite",
           animationDelay: "2.5s",
         }}
       />
@@ -32,7 +30,6 @@ export function HeroGlow() {
         style={{
           background:
             "radial-gradient(circle, rgba(255,215,100,0.8) 0%, rgba(218,165,32,0.5) 25%, rgba(184,134,11,0.2) 50%, transparent 70%)",
-          animation: "hero-glow-pulse 8s ease-in-out infinite",
           animationDelay: "5s",
         }}
       />
@@ -43,7 +40,6 @@ export function HeroGlow() {
         style={{
           background:
             "radial-gradient(circle, rgba(255,215,100,0.85) 0%, rgba(218,165,32,0.55) 25%, rgba(184,134,11,0.25) 50%, transparent 70%)",
-          animation: "hero-glow-pulse 8s ease-in-out infinite",
           animationDelay: "7.5s",
         }}
       />
