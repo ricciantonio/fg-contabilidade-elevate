@@ -4,43 +4,50 @@ export function HeroGlow() {
       className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       aria-hidden="true"
     >
-      {/* Top-left glow */}
+      {/* Main halo — behind the photo on the right */}
       <div
-        className="hero-glow motion-reduce:animate-none absolute -left-[15%] -top-[15%] h-[55vw] w-[55vw] max-w-[620px] rounded-full opacity-70 blur-[70px] sm:h-[40vw] sm:w-[40vw] sm:blur-[90px]"
+        className="animate-hero-breathe motion-reduce:animate-none absolute right-[-15%] top-[10%] h-[80vw] w-[80vw] max-h-[900px] max-w-[900px] rounded-full blur-[100px] sm:blur-[130px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,215,100,0.85) 0%, rgba(218,165,32,0.55) 25%, rgba(184,134,11,0.25) 50%, transparent 70%)",
+            "radial-gradient(circle, rgba(218,165,32,0.55) 0%, rgba(184,134,11,0.35) 30%, rgba(184,134,11,0.12) 55%, transparent 75%)",
           animationDelay: "0s",
         }}
       />
 
-      {/* Top-right glow */}
+      {/* Secondary glow — below-left, asymmetric balance */}
       <div
-        className="hero-glow motion-reduce:animate-none absolute -right-[15%] -top-[15%] h-[50vw] w-[50vw] max-w-[560px] rounded-full opacity-65 blur-[70px] sm:h-[35vw] sm:w-[35vw] sm:blur-[90px]"
+        className="animate-hero-breathe motion-reduce:animate-none absolute -bottom-[20%] -left-[10%] h-[55vw] w-[55vw] max-h-[600px] max-w-[600px] rounded-full blur-[90px] sm:blur-[110px]"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,215,100,0.8) 0%, rgba(218,165,32,0.5) 25%, rgba(184,134,11,0.2) 50%, transparent 70%)",
-          animationDelay: "2.5s",
+            "radial-gradient(circle, rgba(218,165,32,0.35) 0%, rgba(184,134,11,0.18) 35%, transparent 70%)",
+          animationDelay: "4s",
         }}
       />
 
-      {/* Bottom-left glow */}
+      {/* Top vignette */}
       <div
-        className="hero-glow motion-reduce:animate-none absolute -bottom-[15%] -left-[15%] h-[50vw] w-[50vw] max-w-[560px] rounded-full opacity-65 blur-[70px] sm:h-[35vw] sm:w-[35vw] sm:blur-[90px]"
+        className="absolute inset-x-0 top-0 h-40"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,215,100,0.8) 0%, rgba(218,165,32,0.5) 25%, rgba(184,134,11,0.2) 50%, transparent 70%)",
-          animationDelay: "5s",
+            "linear-gradient(to bottom, rgba(0,0,0,0.85), transparent)",
         }}
       />
 
-      {/* Bottom-right glow */}
+      {/* Bottom vignette */}
       <div
-        className="hero-glow motion-reduce:animate-none absolute -bottom-[15%] -right-[15%] h-[55vw] w-[55vw] max-w-[620px] rounded-full opacity-70 blur-[70px] sm:h-[40vw] sm:w-[40vw] sm:blur-[90px]"
+        className="absolute inset-x-0 bottom-0 h-40"
         style={{
           background:
-            "radial-gradient(circle, rgba(255,215,100,0.85) 0%, rgba(218,165,32,0.55) 25%, rgba(184,134,11,0.25) 50%, transparent 70%)",
-          animationDelay: "7.5s",
+            "linear-gradient(to top, rgba(0,0,0,0.85), transparent)",
+        }}
+      />
+
+      {/* Left side darkening for extra contrast */}
+      <div
+        className="absolute inset-y-0 left-0 w-1/3"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.6), transparent)",
         }}
       />
     </div>
