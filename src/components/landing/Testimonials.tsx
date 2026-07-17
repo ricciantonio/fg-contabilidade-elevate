@@ -29,7 +29,7 @@ export function Testimonials() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Depoimentos</p>
           </Reveal>
           <Reveal direction="up" delay={0.1}>
-            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h2 className="font-playfair mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
               O que nossos <span className="gold-text">clientes dizem</span>
             </h2>
           </Reveal>

@@ -13,13 +13,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { openWhatsApp } from "@/lib/whatsapp";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 type Service = {
   icon: typeof Building2;
@@ -121,26 +115,20 @@ export function Services() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Serviços</p>
           </Reveal>
           <Reveal direction="up" delay={0.1}>
-            <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
+            <h2 className="font-playfair mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
               Soluções completas para <span className="gold-text whitespace-nowrap">sua empresa</span>
             </h2>
           </Reveal>
           <Reveal direction="up" delay={0.2}>
             <p className="mt-5 text-base leading-relaxed text-white/65 sm:text-lg">
-              Do primeiro CNPJ até o planejamento estratégico: cuidamos de tudo para
-              o seu negócio operar com segurança.
+              Do primeiro CNPJ até o planejamento estratégico: cuidamos de tudo para o seu negócio operar com segurança.
             </p>
           </Reveal>
         </div>
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <Reveal
-              key={s.title}
-              direction={i % 2 === 0 ? "left" : "right"}
-              duration={0.6}
-              delay={(i % 3) * 0.15}
-            >
+            <Reveal key={s.title} direction={i % 2 === 0 ? "left" : "right"} duration={0.6} delay={(i % 3) * 0.15}>
               <motion.button
                 type="button"
                 onClick={() => setSelected(s)}
@@ -172,9 +160,7 @@ export function Services() {
       </div>
 
       <Dialog open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
-        <DialogContent
-          className="max-w-lg overflow-hidden border-2 border-primary/60 bg-white p-0 text-slate-900 shadow-2xl [&>button]:hidden"
-        >
+        <DialogContent className="max-w-lg overflow-hidden border-2 border-primary/60 bg-white p-0 text-slate-900 shadow-2xl [&>button]:hidden">
           {selected && (
             <>
               <button
@@ -188,23 +174,17 @@ export function Services() {
 
               <div className="max-h-[85vh] overflow-y-auto px-6 py-7 sm:px-8 sm:py-8">
                 <DialogHeader className="space-y-3 text-left">
-                  <div
-                    className="grid h-12 w-12 place-items-center rounded-xl border border-primary/40 bg-primary/10"
-                  >
+                  <div className="grid h-12 w-12 place-items-center rounded-xl border border-primary/40 bg-primary/10">
                     <selected.icon className="h-5 w-5 text-primary" strokeWidth={2} />
                   </div>
-                  <DialogTitle className="text-2xl font-bold text-slate-900 sm:text-3xl">
-                    {selected.title}
-                  </DialogTitle>
+                  <DialogTitle className="text-2xl font-bold text-slate-900 sm:text-3xl">{selected.title}</DialogTitle>
                   <DialogDescription className="text-[15px] leading-relaxed text-slate-600">
                     {selected.longDesc}
                   </DialogDescription>
                 </DialogHeader>
 
                 <div className="mt-6">
-                  <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">
-                    Principais benefícios
-                  </h4>
+                  <h4 className="text-sm font-semibold uppercase tracking-wider text-primary">Principais benefícios</h4>
                   <ul className="mt-3 space-y-2.5">
                     {selected.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-3 text-[15px] leading-relaxed text-slate-700">
