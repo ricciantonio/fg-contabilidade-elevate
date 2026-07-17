@@ -39,7 +39,7 @@ export function Navbar() {
           <img
             src={fgLogo.url}
             alt="FG Contabilidade"
-            className="h-9 w-auto object-contain sm:h-10 lg:h-12"
+            className="h-10 w-auto object-contain sm:h-12 lg:h-14"
           />
         </a>
 
