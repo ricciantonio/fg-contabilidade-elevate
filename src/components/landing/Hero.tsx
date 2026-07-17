@@ -11,7 +11,7 @@ export function Hero() {
       className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:pt-40"
     >
       <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-25 sm:opacity-20"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-30 sm:opacity-25"
         style={{
           backgroundImage: `url(${fgLogo.url})`,
           backgroundSize: "clamp(280px, 55vw, 720px)",
