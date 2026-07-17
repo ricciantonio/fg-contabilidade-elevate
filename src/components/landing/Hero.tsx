@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Star, MapPin } from "lucide-react";
 import sociosImg from "@/assets/socios-fg.jpg";
+import fgLogo from "@/assets/fg-logo.jpg.asset.json";
 import { openWhatsApp } from "@/lib/whatsapp";
 
 export function Hero() {
