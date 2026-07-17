@@ -3,7 +3,11 @@ import { HeartHandshake, Zap, ShieldCheck, Briefcase, UserCog, LifeBuoy } from "
 import { Reveal } from "./Reveal";
 
 const items = [
-  { icon: HeartHandshake, title: "Atendimento Humanizado", desc: "Relacionamento próximo, escuta atenta e respostas rápidas." },
+  {
+    icon: HeartHandshake,
+    title: "Atendimento Humanizado",
+    desc: "Relacionamento próximo, escuta ativa e respostas rápidas.",
+  },
   { icon: Zap, title: "Agilidade nos Processos", desc: "Fluxos otimizados para você não esperar por informação." },
   { icon: ShieldCheck, title: "Segurança Fiscal", desc: "Conformidade rigorosa com a legislação vigente." },
   { icon: Briefcase, title: "Especialistas em Empresas", desc: "Experiência sólida em contabilidade empresarial." },
