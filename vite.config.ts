@@ -6,16 +6,19 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+const nitroPreset = process.env.VERCEL === "1"
+  ? "vercel"
+  : process.env.NITRO_PRESET?.trim() || undefined;
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
   },
-  // Override the default Cloudflare Workers preset when deploying to Vercel.
-  // Set NITRO_PRESET=vercel in the Vercel project's Environment Variables (Production + Preview).
-  // Without this the Vercel Function fails with `EnvFileReadError` / FUNCTION_INVOCATION_FAILED.
+  // Vercel always exposes VERCEL=1 during builds, so selecting its preset must
+  // not depend on a manually configured environment variable.
   nitro: {
-    preset: process.env.NITRO_PRESET,
+    preset: nitroPreset,
   },
 });
