@@ -64,7 +64,7 @@ export function Contact() {
           </Reveal>
           <Reveal direction="up" delay={0.1}>
             <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              Fale <span className="gold-text">com nossos especialistas?</span>
+              Fale <span className="gold-text">com nossos especialistas</span>
             </h2>
           </Reveal>
         </div>
