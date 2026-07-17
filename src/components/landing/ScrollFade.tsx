@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
 
 /**
  * Wraps a section and fades it based on scroll direction:
@@ -8,13 +8,14 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
  */
 export function ScrollFade({
   children,
-  as: Tag = "div",
+  as,
   className = "",
 }: {
   children: ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   className?: string;
 }) {
+  const Tag: ElementType = as ?? "div";
   const ref = useRef<HTMLElement | null>(null);
   const [inView, setInView] = useState(true);
   const [direction, setDirection] = useState<"down" | "up">("down");
