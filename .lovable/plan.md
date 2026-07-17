@@ -1,56 +1,33 @@
 ## Objetivo
+Criar um efeito de luz dourada animada e pulsante nos cantos da seção Hero, reforçando a identidade premium preto + dourado do site.
 
-Fazer o projeto rodar no Vercel (domínio `www.contabilidadefg.com.br`), eliminando o erro `EnvFileReadError / FUNCTION_INVOCATION_FAILED`.
+## O que será feito
 
-## Causa
+1. **Criar componente `HeroGlow.tsx`**
+   - Local: `src/components/landing/HeroGlow.tsx`
+   - Quatro blocos de gradiente radial posicionados nos cantos (top-left, top-right, bottom-left, bottom-right).
+   - Cores na paleta dourada (`#daa520`, `#b8860b`) com opacidade baixa para não competir com o conteúdo.
+   - Animação de pulso contínuo com duração longa (~6-10s) e fases deslocadas entre os cantos para efeito orgânico.
 
-O projeto usa `@lovable.dev/vite-tanstack-config`, que por padrão empacota o servidor com o **preset Cloudflare Workers** via Nitro. O Vercel executa esse artefato como Serverless Function e o runtime tenta ler um arquivo `.env` embutido no bundle que não existe — daí `failed to load env vars: EnvFileReadError` em toda rota, inclusive `/favicon.ico`.
+2. **Adicionar keyframes no `src/styles.css`**
+   - Keyframe `hero-glow-pulse` que alterna opacidade e escala sutilmente.
+   - Aplicado via utility `.animate-hero-glow`.
+   - Respeita `prefers-reduced-motion`: se o usuário tiver redução de movimento, a animação é desativada.
 
-## Plano
+3. **Integrar no `Hero.tsx`**
+   - Inserir `<HeroGlow />` como primeiro filho da `<section>`, com `absolute inset-0 -z-10 pointer-events-none`.
+   - Manter a marca d'água da logo e a foto dos sócios sem alterações.
 
-1. **Forçar o preset de build para Vercel**
-   Ajustar `vite.config.ts` para passar `preset: "vercel"` ao Nitro do TanStack Start. Fica algo como:
-   ```ts
-   export default defineConfig({
-     tanstackStart: {
-       server: { entry: "server" },
-     },
-     nitro: { preset: "vercel" },
-   });
-   ```
-   (validando o nome exato do campo aceito por `@lovable.dev/vite-tanstack-config`; se o wrapper não expor `nitro`, usar `NITRO_PRESET=vercel` como Environment Variable de build no Vercel — alternativa oficial do Nitro).
+4. **Verificar responsividade**
+   - Ajustar tamanho/intensidade dos glows para mobile (menores e mais suaves) e desktop.
 
-2. **Configurar o Vercel corretamente**
-   - Build Command: `bun run build` (ou `npm run build`) — o padrão do template.
-   - Output Directory: deixar padrão (Nitro/Vercel preset gera `.vercel/output` automaticamente, formato Build Output API v3, que o Vercel reconhece nativamente).
-   - Node.js Version: 20.x.
-   - Framework Preset no Vercel: **Other** (não escolher "Vite" ou "Next"; o preset Nitro já entrega o layout esperado).
+## Entregáveis
+- `src/components/landing/HeroGlow.tsx`
+- Atualização de `src/styles.css` com keyframes e utility
+- Atualização de `src/components/landing/Hero.tsx`
 
-3. **Variáveis de ambiente no Vercel**
-   Hoje o projeto não usa segredos server-side (não há `.env` nem chamadas a `process.env.*` fora do template). Mesmo assim, cadastrar em **Vercel → Settings → Environment Variables** (Production + Preview) qualquer variável futura — nunca comitar `.env`. Se o preset Vercel exigir alguma variável específica em build (ex.: `NITRO_PRESET=vercel`), adicionar aqui como Build & Runtime.
-
-4. **Remover suposições de Cloudflare no código**
-   Verificar `src/server.ts` e middlewares para garantir que nada dependa de APIs exclusivas de Workers (ex.: `env` injetado por request no estilo Workers). O template atual só faz wrapping SSR genérico — deve rodar sem alteração, mas confirmo lendo o arquivo antes do deploy.
-
-5. **Redeploy no Vercel e validar**
-   - Fazer push / trigger de novo build.
-   - Testar `/`, `/politica-de-privacidade`, `/favicon.png`, `/logo-fg.png`.
-   - Conferir logs de Function no Vercel: não deve mais aparecer `EnvFileReadError`.
-
-6. **Fallback se o preset Vercel não for aceito pelo wrapper**
-   Caso `@lovable.dev/vite-tanstack-config` não permita trocar o preset (é um wrapper opinativo do Lovable para Cloudflare), as opções são:
-   - a) Definir `NITRO_PRESET=vercel` como env var de build no Vercel — o Nitro respeita essa variável mesmo quando o preset é fixado em código, na maioria das versões.
-   - b) Substituir `@lovable.dev/vite-tanstack-config` pela configuração direta do `@tanstack/react-start/plugin/vite` + `nitro-vite-plugin` com `preset: "vercel"`. É reversível, mas afasta o projeto do template Lovable e pode dificultar futuras atualizações.
-
-## Detalhes técnicos
-
-- Nitro presets: https://nitro.build/deploy/providers/vercel — o preset `vercel` gera `.vercel/output` no formato Build Output API v3; o Vercel detecta e serve automaticamente, sem `vercel.json`.
-- O erro `EnvFileReadError` é do runtime do Nitro Vercel preset quando o arquivo `.env` referenciado no build não é copiado para a função. Trocar o preset para o correto resolve o read spurious; o preset Cloudflare gera um bundle que o Vercel não sabe executar como esperado.
-- Não precisa criar `.env` no repositório — segredos ficam no painel do Vercel.
-
-## Riscos
-
-- Manter dois ambientes (Lovable + Vercel) implica retestar cada mudança em ambos. O Lovable continuará publicando em `fg-shine-portal.lovable.app` automaticamente, o Vercel só atualiza quando você fizer push/redeploy.
-- Se o wrapper Lovable atualizar e sobrescrever o preset, o build pode voltar a quebrar no Vercel.
-
-Me confirme para eu prosseguir com a alteração de `vite.config.ts` (passo 1) e a leitura de `src/server.ts` (passo 4). Depois disso você faz o redeploy no Vercel e me diz o resultado dos logs.
+## Critérios de aceitação
+- Hero exibe glows dourados sutis pulsando nos cantos.
+- Animação é suave e não distrai do conteúdo.
+- Funciona em desktop e mobile.
+- Respeita `prefers-reduced-motion`.
