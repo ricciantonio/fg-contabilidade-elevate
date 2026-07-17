@@ -30,7 +30,7 @@ export function Services() {
           </Reveal>
           <Reveal direction="up" delay={0.1}>
             <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              Soluções completas para <span className="gold-text">sua empresa</span>
+              Soluções completas para <span className="gold-text whitespace-nowrap">sua empresa</span>
             </h2>
           </Reveal>
           <Reveal direction="up" delay={0.2}>
