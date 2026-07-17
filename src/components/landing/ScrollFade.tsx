@@ -61,8 +61,8 @@ export function ScrollFade({
       ref={ref as never}
       className={className}
       style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(8px)",
+        opacity: visible ? 1 : 0.4,
+        transform: visible ? "translateY(0)" : "translateY(6px)",
         transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
         willChange: "opacity, transform",
       }}
