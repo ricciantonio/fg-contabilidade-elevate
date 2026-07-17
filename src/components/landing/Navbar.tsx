@@ -35,12 +35,14 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8 lg:py-4">
-        <a href="#inicio" className="group flex items-center py-1">
-          <img
-            src={fgLogoNew.url}
-            alt="FG Contabilidade"
-            className="h-14 w-auto object-contain sm:h-16 lg:h-20"
-          />
+        <a href="#inicio" className="group flex items-center">
+          <div className="rounded-xl bg-white/[0.06] p-2 ring-1 ring-inset ring-[rgba(218,165,32,0.15)] transition-all duration-300 group-hover:bg-white/[0.10] group-hover:ring-[rgba(218,165,32,0.30)]">
+            <img
+              src={fgLogoNew.url}
+              alt="FG Contabilidade"
+              className="h-10 w-auto object-contain sm:h-12 lg:h-14"
+            />
+          </div>
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
