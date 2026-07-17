@@ -1,0 +1,72 @@
+import { useEffect, useRef, useState, type ReactNode } from "react";
+
+/**
+ * Wraps a section and fades it based on scroll direction:
+ * - Scrolling DOWN (or at rest) while in view: opacity 1
+ * - Scrolling UP: opacity fades toward 0 (ghost effect)
+ * Respects prefers-reduced-motion.
+ */
+export function ScrollFade({
+  children,
+  as: Tag = "div",
+  className = "",
+}: {
+  children: ReactNode;
+  as?: keyof JSX.IntrinsicElements;
+  className?: string;
+}) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [inView, setInView] = useState(true);
+  const [direction, setDirection] = useState<"down" | "up">("down");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (Math.abs(y - lastY) > 2) {
+          setDirection(y > lastY ? "down" : "up");
+          lastY = y;
+        }
+        ticking = false;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.05, rootMargin: "0px 0px -10% 0px" },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  const visible = inView && direction === "down";
+
+  return (
+    <Tag
+      ref={ref as never}
+      className={className}
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(8px)",
+        transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+        willChange: "opacity, transform",
+      }}
+    >
+      {children}
+    </Tag>
+  );
+}
