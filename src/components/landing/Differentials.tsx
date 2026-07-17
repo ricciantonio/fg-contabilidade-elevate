@@ -16,35 +16,19 @@ type Stat = {
 const stats: Stat[] = [
   {
     icon: TrendingUp,
-    end: 4.5,
+    end: 500,
     prefix: "+",
-    suffix: "Bi",
+    suffix: "Mi",
     decimals: 1,
     label: "de receitas apuradas em 2025",
   },
   {
     icon: Building2,
-    end: 1000,
+    end: 250,
     prefix: "+",
     suffix: "",
     separator: true,
     label: "empresas atendidas mensalmente",
-  },
-  {
-    icon: FileText,
-    end: 5500,
-    prefix: "+",
-    suffix: "",
-    separator: true,
-    label: "folhas de pagamento mensalmente",
-  },
-  {
-    icon: ShieldCheck,
-    end: 50000,
-    prefix: "+",
-    suffix: "",
-    separator: true,
-    label: "processos de regularização",
   },
 ];
 
@@ -63,29 +47,18 @@ export function Differentials() {
           {/* RIGHT: Heading + cards 2x2 */}
           <div className="flex flex-col justify-center">
             <Reveal direction="right" delay={0.1}>
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
-                Diferenciais
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">Diferenciais</p>
               <h2 className="mt-4 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-                Números que <span className="gold-text">comprovam</span> nossa
-                experiência
+                Números que <span className="gold-text">comprovam</span> nossa experiência
               </h2>
             </Reveal>
 
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
               {stats.map((stat, i) => (
-                <Reveal
-                  key={stat.label}
-                  direction="scale"
-                  duration={0.7}
-                  delay={0.15 + i * 0.08}
-                >
+                <Reveal key={stat.label} direction="scale" duration={0.7} delay={0.15 + i * 0.08}>
                   <div className="flex h-full flex-col rounded-2xl border border-slate-100/80 bg-white p-6 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                      <stat.icon
-                        className="h-6 w-6 text-primary"
-                        strokeWidth={2}
-                      />
+                      <stat.icon className="h-6 w-6 text-primary" strokeWidth={2} />
                     </div>
                     <p className="mt-5 text-3xl font-bold tracking-tight gold-text">
                       <CountUp
@@ -97,9 +70,7 @@ export function Differentials() {
                         duration={2000}
                       />
                     </p>
-                    <p className="mt-1 text-sm font-medium leading-snug text-slate-600">
-                      {stat.label}
-                    </p>
+                    <p className="mt-1 text-sm font-medium leading-snug text-slate-600">{stat.label}</p>
                   </div>
                 </Reveal>
               ))}
