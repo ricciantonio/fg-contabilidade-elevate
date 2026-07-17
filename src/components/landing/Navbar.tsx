@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { openWhatsApp } from "@/lib/whatsapp";
+import fgLogo from "@/assets/fg-logo.jpg.asset.json";
 
 const links = [
   { href: "#inicio", label: "Início" },
