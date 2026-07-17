@@ -35,16 +35,12 @@ export function Navbar() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
-        <a href="#inicio" className="group flex items-center gap-2.5">
-          <span
-            aria-hidden
-            className="grid h-9 w-9 place-items-center rounded-lg border border-[rgba(218,165,32,0.35)] bg-black text-sm font-bold text-primary shadow-[inset_0_0_20px_rgba(218,165,32,0.15)]"
-          >
-            FG
-          </span>
-          <span className="text-sm font-semibold tracking-wide text-white sm:text-base">
-            FG <span className="gold-text">Contabilidade</span>
-          </span>
+        <a href="#inicio" className="group flex items-center">
+          <img
+            src={fgLogo.url}
+            alt="FG Contabilidade"
+            className="h-11 w-auto sm:h-12"
+          />
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">
