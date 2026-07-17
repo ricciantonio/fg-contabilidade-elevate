@@ -38,7 +38,7 @@ export function Navbar() {
         <a href="#inicio" className="group flex items-center">
           <div className="rounded-xl bg-white/[0.06] p-2 ring-1 ring-inset ring-[rgba(218,165,32,0.15)] transition-all duration-300 group-hover:bg-white/[0.10] group-hover:ring-[rgba(218,165,32,0.30)]">
             <img
-              src={fgLogoNew.url}
+              src="/logo-fg.png"
               alt="FG Contabilidade"
               className="h-10 w-auto object-contain sm:h-12 lg:h-14"
             />
