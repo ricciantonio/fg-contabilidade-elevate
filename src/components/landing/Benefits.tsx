@@ -22,7 +22,7 @@ export function Benefits() {
           </Reveal>
           <Reveal direction="up" delay={0.1}>
             <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
-              Por que empresas <span className="gold-text">confiam na FG</span>
+              Por que empresas <span className="gold-text whitespace-nowrap">confiam na FG</span>
             </h2>
           </Reveal>
         </div>
