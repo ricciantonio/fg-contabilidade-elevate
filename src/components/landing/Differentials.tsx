@@ -1,26 +1,49 @@
 import { TrendingUp, Building2, FileText, ShieldCheck } from "lucide-react";
 import { BrazilMap } from "./BrazilMap";
 import { Reveal } from "./Reveal";
+import { CountUp } from "./CountUp";
 
-const stats = [
+type Stat = {
+  icon: typeof TrendingUp;
+  end: number;
+  prefix: string;
+  suffix: string;
+  decimals?: number;
+  separator?: boolean;
+  label: string;
+};
+
+const stats: Stat[] = [
   {
     icon: TrendingUp,
-    value: "+4.5Bi",
+    end: 4.5,
+    prefix: "+",
+    suffix: "Bi",
+    decimals: 1,
     label: "de receitas apuradas em 2025",
   },
   {
     icon: Building2,
-    value: "+200",
+    end: 1000,
+    prefix: "+",
+    suffix: "",
+    separator: true,
     label: "empresas atendidas mensalmente",
   },
   {
     icon: FileText,
-    value: "+5500",
+    end: 5500,
+    prefix: "+",
+    suffix: "",
+    separator: true,
     label: "folhas de pagamento mensalmente",
   },
   {
     icon: ShieldCheck,
-    value: "+50000",
+    end: 50000,
+    prefix: "+",
+    suffix: "",
+    separator: true,
     label: "processos de regularização",
   },
 ];
@@ -53,7 +76,8 @@ export function Differentials() {
               {stats.map((stat, i) => (
                 <Reveal
                   key={stat.label}
-                  direction="up"
+                  direction="scale"
+                  duration={0.7}
                   delay={0.15 + i * 0.08}
                 >
                   <div className="flex h-full flex-col rounded-2xl border border-slate-100/80 bg-white p-6 shadow-lg shadow-black/5 transition-transform duration-300 hover:-translate-y-1">
@@ -64,7 +88,14 @@ export function Differentials() {
                       />
                     </div>
                     <p className="mt-5 text-3xl font-bold tracking-tight gold-text">
-                      {stat.value}
+                      <CountUp
+                        end={stat.end}
+                        prefix={stat.prefix}
+                        suffix={stat.suffix}
+                        decimals={stat.decimals ?? 0}
+                        separator={stat.separator}
+                        duration={2000}
+                      />
                     </p>
                     <p className="mt-1 text-sm font-medium leading-snug text-slate-600">
                       {stat.label}
