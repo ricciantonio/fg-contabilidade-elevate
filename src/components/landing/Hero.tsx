@@ -7,10 +7,10 @@ import { HeroGlow } from "./HeroGlow";
 
 export function Hero() {
   return (
-    <section id="inicio" className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:pt-40">
+    <section id="inicio" className="relative overflow-visible pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:pt-40">
       <HeroGlow />
       <div
-        className="pointer-events-none absolute inset-0 -z-10 opacity-30 sm:opacity-25"
+        className="pointer-events-none absolute inset-0 z-0 opacity-30 sm:opacity-25"
         style={{
           backgroundImage: `url(${fgLogo.url})`,
           backgroundSize: "clamp(280px, 55vw, 720px)",
@@ -19,7 +19,8 @@ export function Hero() {
         }}
         aria-hidden="true"
       />
-      <div className="relative mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
+      <div className="relative z-10 mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
+
         <div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
