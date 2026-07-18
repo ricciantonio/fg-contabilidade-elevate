@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, MessageCircle, Star, MapPin } from "lucide-react";
 import sociosImg from "@/assets/socios-fg.jpg";
-import fgLogo from "@/assets/fg-logo.jpg.asset.json";
 import { openWhatsApp } from "@/lib/whatsapp";
+
 import { HeroGlow } from "./HeroGlow";
 
 export function Hero() {
@@ -10,15 +10,15 @@ export function Hero() {
     <section id="inicio" className="relative overflow-visible pt-28 pb-16 sm:pt-32 sm:pb-20 lg:min-h-screen lg:pt-40">
       <HeroGlow />
       <div
-        className="pointer-events-none absolute inset-0 z-0 opacity-30 sm:opacity-25"
-        style={{
-          backgroundImage: `url(${fgLogo.url})`,
-          backgroundSize: "clamp(280px, 55vw, 720px)",
-          backgroundPosition: "center 35%",
-          backgroundRepeat: "no-repeat",
-        }}
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
         aria-hidden="true"
-      />
+      >
+        <img
+          src="/logo-fg.png"
+          alt=""
+          className="absolute left-[-8%] top-1/2 -translate-y-1/2 w-[600px] max-w-none opacity-[0.12] sm:w-[720px] lg:left-[-4%] lg:w-[820px]"
+        />
+      </div>
       <div className="relative z-10 mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
 
         <div>
