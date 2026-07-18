@@ -72,22 +72,33 @@ export const Route = createFileRoute("/")({
 
 function LandingPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <main>
-        <Hero />
-        <ScrollFade><About /></ScrollFade>
-        <ScrollFade><Benefits /></ScrollFade>
-        <ScrollFade><Differentials /></ScrollFade>
-        <ScrollFade><Services /></ScrollFade>
-        <ScrollFade><InvoiceRequests /></ScrollFade>
-        <ScrollFade><Institutional /></ScrollFade>
-        <ScrollFade><Testimonials /></ScrollFade>
-        <ScrollFade><Contact /></ScrollFade>
-        <ScrollFade><MapEmbed /></ScrollFade>
-        <ScrollFade><FinalCTA /></ScrollFade>
-      </main>
-      <Footer />
+    <div className="relative min-h-screen bg-background text-foreground">
+      {/* Decorative background */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-0 right-0 text-foreground opacity-5 select-none">
+          <span className="font-playfair text-9xl font-bold">FG</span>
+        </div>
+        <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-amber-200 blur-3xl opacity-5" />
+        <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-slate-900 blur-3xl opacity-[0.03]" />
+      </div>
+
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <Hero />
+          <ScrollFade><About /></ScrollFade>
+          <ScrollFade><Benefits /></ScrollFade>
+          <ScrollFade><Differentials /></ScrollFade>
+          <ScrollFade><Services /></ScrollFade>
+          <ScrollFade><InvoiceRequests /></ScrollFade>
+          <ScrollFade><Institutional /></ScrollFade>
+          <ScrollFade><Testimonials /></ScrollFade>
+          <ScrollFade><Contact /></ScrollFade>
+          <ScrollFade><MapEmbed /></ScrollFade>
+          <ScrollFade><FinalCTA /></ScrollFade>
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }
