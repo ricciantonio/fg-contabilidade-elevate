@@ -16,7 +16,15 @@ export function Hero() {
         <img
           src="/logo-fg.png"
           alt=""
-          className="absolute left-[-8%] top-1/2 -translate-y-1/2 w-[600px] max-w-none opacity-[0.12] sm:w-[720px] lg:left-[-4%] lg:w-[820px]"
+          loading="eager"
+          decoding="async"
+          className="absolute top-1/2 -translate-y-1/2 max-w-none select-none
+                     left-[-30%] w-[380px] opacity-[0.08]
+                     sm:left-[-20%] sm:w-[520px] sm:opacity-[0.10]
+                     md:left-[-15%] md:w-[640px]
+                     lg:left-[-10%] lg:w-[760px] lg:opacity-[0.12]
+                     xl:left-[-6%] xl:w-[880px]
+                     2xl:left-[-2%] 2xl:w-[980px]"
         />
       </div>
       <div className="relative z-10 mx-auto grid max-w-7xl gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:items-center lg:gap-16">
