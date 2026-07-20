@@ -4,19 +4,20 @@ import { Reveal } from "./Reveal";
 
 const testimonials = [
   {
-    name: "Rafael Andrade",
-    company: "Andrade Engenharia Ltda.",
-    text: "Migrar para a FG foi a melhor decisão. Atendimento próximo, ágil e sempre resolvem tudo antes de virar problema.",
+    name: "Luis Borela",
+    text: "Ótima equipe contábil. Gevanildo e Felipe dispensam comentários, profissionais no que fazem estão sempre dispostos a nos auxiliar com a burocracia diária das empresas.",
   },
   {
     name: "Camila Ribeiro",
-    company: "Ribeiro Comércio de Alimentos",
     text: "Profissionais extremamente competentes. Reduziram nossa carga tributária com total segurança e clareza.",
   },
   {
     name: "Diego Martins",
-    company: "DM Tecnologia",
     text: "Desde a abertura da empresa contamos com a FG. Suporte impecável e comunicação transparente em cada etapa.",
+  },
+  {
+    name: "Isabella Domingues",
+    text: "Atendimento de excelência e muito profissionalismo!",
   },
 ];
 
