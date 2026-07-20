@@ -19,10 +19,10 @@ export function Hero() {
           loading="eager"
           decoding="async"
           className="absolute top-1/2 -translate-y-1/2 max-w-none select-none
-                     left-[-30%] w-[380px] opacity-[0.08]
-                     sm:left-[-20%] sm:w-[520px] sm:opacity-[0.10]
+                     left-[-30%] w-[380px] opacity-[0.04]
+                     sm:left-[-20%] sm:w-[520px] sm:opacity-[0.05]
                      md:left-[-15%] md:w-[640px]
-                     lg:left-[-10%] lg:w-[760px] lg:opacity-[0.12]
+                     lg:left-[-10%] lg:w-[760px] lg:opacity-[0.06]
                      xl:left-[-6%] xl:w-[880px]
                      2xl:left-[-2%] 2xl:w-[980px]"
         />
