@@ -5,7 +5,7 @@ import { openWhatsApp } from "@/lib/whatsapp";
 
 const links = [
   { href: "#inicio", label: "Início" },
-  { href: "#quem somos", label: "Quem Somos" },
+  { href: "#quem-somos", label: "Quem Somos" },
   { href: "#servicos", label: "Serviços" },
   { href: "#diferenciais", label: "Diferenciais" },
   { href: "#contato", label: "Contato" },
