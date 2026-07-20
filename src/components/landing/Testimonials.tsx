@@ -53,7 +53,6 @@ export function Testimonials() {
                 <p className="mt-4 text-sm leading-relaxed text-white/80">"{t.text}"</p>
                 <div className="mt-6 border-t border-[rgba(218,165,32,0.15)] pt-4">
                   <p className="text-sm font-semibold text-white">{t.name}</p>
-                  <p className="text-xs text-white/55">{t.company}</p>
                 </div>
               </motion.article>
             </Reveal>
