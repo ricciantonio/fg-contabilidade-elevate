@@ -1,17 +1,20 @@
-import escritorioAsset from "@/assets/escritorio-fg-contabilidade.png.asset.json";
+import escritorioAsset from "@/assets/escritorio-fg-contabilidade.jpg.asset.json";
 import { Reveal } from "./Reveal";
 
 export function About() {
   return (
     <section id="quem-somos" className="relative py-24 sm:py-32">
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal direction="up" delay={0.1}>
-            <div className="relative overflow-hidden rounded-2xl border border-[rgba(218,165,32,0.2)]">
+            <div className="relative overflow-hidden rounded-2xl border border-[rgba(218,165,32,0.2)] shadow-2xl">
               <img
                 src={escritorioAsset.url}
                 alt="Escritório FG Contabilidade"
-                className="h-auto w-full object-cover"
+                width={1600}
+                height={1067}
+                loading="lazy"
+                className="h-full w-full object-cover"
               />
             </div>
           </Reveal>
