@@ -39,7 +39,20 @@ export function Contact() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    // TODO: integrar com e-mail/webhook. Por enquanto, encaminha via WhatsApp.
+    // Envia e-mail via /api/contact (fire-and-forget) e redireciona pro WhatsApp.
+    fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error(String(res.status));
+      })
+      .catch((err) => {
+        console.error("Falha ao enviar e-mail de contato", err);
+        toast.error("Não foi possível enviar o e-mail. Continuaremos pelo WhatsApp.");
+      });
+
     const text = [
       "Olá! Gostaria de solicitar um orçamento.",
       "",
