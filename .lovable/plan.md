@@ -1,19 +1,20 @@
-## Plano: adicionar Playfair Display
+# Envio de e-mail via Resend (mantendo WhatsApp)
 
-Não posso colar o CSS exatamente como enviado — o `@import url('https://fonts.googleapis.com/...')` em `src/styles.css` quebra o build do Tailwind v4 (Lightning CSS tenta resolver a URL como arquivo local e o preview fica sem estilos). O resultado visual é o mesmo carregando a fonte via `<link>` no head.
+## O que fica igual
+O redirect pro WhatsApp continua acontecendo ao enviar o formulário.
 
-### Mudanças
+## O que adiciono
+Envio paralelo por e-mail pra `escritorio@contabilidadefg.com.br` via Resend.
 
-1. **`src/routes/__root.tsx`** — adicionar nos `links` do `head()`:
-   - `preconnect` para `https://fonts.googleapis.com`
-   - `preconnect` para `https://fonts.gstatic.com` (crossOrigin anonymous)
-   - `stylesheet` para `https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap`
-   (Preconnects do Google Fonts provavelmente já existem — reutilizo.)
+## Passos
 
-2. **`src/styles.css`** — aplicar o conteúdo enviado, **sem** a linha `@import url(...Playfair...)`. Isso adiciona apenas o token `--font-playfair: "Playfair Display", serif;` dentro de `@theme inline`, habilitando a utility `font-playfair` no Tailwind.
+1. **Conectar Resend** pelo connector da Lovable — abre um fluxo pra você autorizar. Isso disponibiliza `RESEND_API_KEY` como variável de ambiente no servidor, sem colar chave manualmente.
+2. **Criar `src/routes/api/contact.ts`** (POST) que:
+   - Valida os campos com Zod (mesmas regras do formulário).
+   - Chama a Resend via gateway (`https://connector-gateway.lovable.dev/resend/emails`) com `Authorization: Bearer LOVABLE_API_KEY` e `X-Connection-Api-Key: RESEND_API_KEY`.
+   - `to: escritorio@contabilidadefg.com.br`, `reply_to` = e-mail do lead, `subject` = "Novo orçamento - {Nome}", HTML simples com todos os campos.
+   - Retorna `{ ok: true }` ou erro logado.
+3. **Atualizar `Contact.tsx`**: no `onSubmit`, disparar `fetch('/api/contact', ...)` fire-and-forget **antes** do `openWhatsApp` (não bloqueia o redirect). Toast discreto em caso de erro.
 
-Resto do arquivo permanece idêntico ao enviado.
-
-### Uso
-
-Depois disso, aplicar Playfair em qualquer elemento com `className="font-playfair"` (ex.: headings do Hero, About). Me diga se quer que eu já troque headings específicos para Playfair.
+## Importante sobre o remetente
+Inicialmente o `from` será `FG Contabilidade <onboarding@resend.dev>` (endereço de teste da Resend). **Limitação:** esse remetente só entrega em caixas do próprio dono da conta Resend. Pra receber de forma confiável em `escritorio@contabilidadefg.com.br`, é preciso verificar o domínio `contabilidadefg.com.br` na Resend (adicionar DNS SPF/DKIM) e trocar o `from` pra algo tipo `contato@contabilidadefg.com.br`. Deixo isso como TODO comentado no código; te oriento no DNS quando quiser fazer.
