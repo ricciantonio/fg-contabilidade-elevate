@@ -56,11 +56,8 @@ export const Route = createFileRoute("/api/contact")({
           </div>
         `;
 
-        // TODO: verificar o domínio contabilidadefg.com.br na Resend e trocar o `from`
-        // para algo como "FG Contabilidade <contato@contabilidadefg.com.br>".
-        // O endereço onboarding@resend.dev só entrega em caixas do dono da conta Resend.
         const body = {
-          from: "FG Contabilidade <onboarding@resend.dev>",
+          from: "FG Contabilidade <noreply@contabilidadefg.com.br>",
           to: ["escritorio@contabilidadefg.com.br"],
           reply_to: data.email,
           subject: `Novo orçamento - ${data.name}`,
