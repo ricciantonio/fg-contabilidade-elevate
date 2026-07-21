@@ -1,4 +1,3 @@
-import escritorioAsset from "@/assets/escritorio-fg-contabilidade.png.asset.json";
 import { Reveal } from "./Reveal";
 
 export function About() {
@@ -9,7 +8,7 @@ export function About() {
           <Reveal direction="up" delay={0.1}>
             <div className="relative overflow-hidden rounded-2xl border border-[rgba(218,165,32,0.2)] shadow-2xl">
               <img
-                src={escritorioAsset.url}
+                src="/escritorio-fg-contabilidade.png"
                 alt="Escritório FG Contabilidade"
                 width={1600}
                 height={1067}
