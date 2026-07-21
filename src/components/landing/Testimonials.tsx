@@ -8,12 +8,12 @@ const testimonials = [
     text: "Ótima equipe contábil. Gevanildo e Felipe dispensam comentários, profissionais no que fazem estão sempre dispostos a nos auxiliar com a burocracia diária das empresas.",
   },
   {
-    name: "Camila Ribeiro",
-    text: "Profissionais extremamente competentes. Reduziram nossa carga tributária com total segurança e clareza.",
+    name: "Jessica Tottene",
+    text: "Estamos com eles a mais de 3 anos, cuidando de mais de 3 empresas, sempre nos dando todo suporte necessário,nos auxiliando, nos orientando, tirando nossas duvidas. Para quem precisa de um escritorio de confiança e segurança, pode contratar!!",
   },
   {
-    name: "Diego Martins",
-    text: "Desde a abertura da empresa contamos com a FG. Suporte impecável e comunicação transparente em cada etapa.",
+    name: "Marcelo Tadeu",
+    text: "Top demais pessoal resolvi tudo certinho as coisas nunca mais troco.",
   },
   {
     name: "Isabella Domingues",
