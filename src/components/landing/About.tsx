@@ -1,4 +1,4 @@
-import escritorioAsset from "@/assets/escritorio-fg-contabilidade.jpg.asset.json";
+import escritorioAsset from "@/assets/escritorio-fg-contabilidade.png.asset.json";
 import { Reveal } from "./Reveal";
 
 export function About() {
