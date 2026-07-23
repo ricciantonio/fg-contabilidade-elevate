@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
@@ -23,7 +24,11 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
-      { name: "keywords", content: "contabilidade Londrina, escritório contábil, abertura de empresas, planejamento tributário, departamento pessoal, FG Contabilidade" },
+      {
+        name: "keywords",
+        content:
+          "contabilidade Londrina, escritório contábil, abertura de empresas, planejamento tributário, departamento pessoal, FG Contabilidade",
+      },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
       { property: "og:type", content: "website" },
@@ -71,6 +76,21 @@ export const Route = createFileRoute("/")({
 });
 
 function LandingPage() {
+  useEffect(() => {
+    // Google Analytics 4
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-ZDCBSXB151";
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-ZDCBSXB151");
+  }, []);
+
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       {/* Decorative background */}
@@ -81,21 +101,40 @@ function LandingPage() {
         <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-amber-200 blur-3xl opacity-5" />
         <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-slate-900 blur-3xl opacity-[0.03]" />
       </div>
-
       <div className="relative z-10">
         <Navbar />
         <main>
           <Hero />
-          <ScrollFade><About /></ScrollFade>
-          <ScrollFade><Benefits /></ScrollFade>
-          <ScrollFade><Differentials /></ScrollFade>
-          <ScrollFade><Services /></ScrollFade>
-          <ScrollFade><InvoiceRequests /></ScrollFade>
-          <ScrollFade><Institutional /></ScrollFade>
-          <ScrollFade><Testimonials /></ScrollFade>
-          <ScrollFade><Contact /></ScrollFade>
-          <ScrollFade><MapEmbed /></ScrollFade>
-          <ScrollFade><FinalCTA /></ScrollFade>
+          <ScrollFade>
+            <About />
+          </ScrollFade>
+          <ScrollFade>
+            <Benefits />
+          </ScrollFade>
+          <ScrollFade>
+            <Differentials />
+          </ScrollFade>
+          <ScrollFade>
+            <Services />
+          </ScrollFade>
+          <ScrollFade>
+            <InvoiceRequests />
+          </ScrollFade>
+          <ScrollFade>
+            <Institutional />
+          </ScrollFade>
+          <ScrollFade>
+            <Testimonials />
+          </ScrollFade>
+          <ScrollFade>
+            <Contact />
+          </ScrollFade>
+          <ScrollFade>
+            <MapEmbed />
+          </ScrollFade>
+          <ScrollFade>
+            <FinalCTA />
+          </ScrollFade>
         </main>
         <Footer />
       </div>
