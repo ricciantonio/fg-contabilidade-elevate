@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/landing/Navbar";
 import { Hero } from "@/components/landing/Hero";
@@ -76,21 +75,6 @@ export const Route = createFileRoute("/")({
 });
 
 function LandingPage() {
-  useEffect(() => {
-    // Google Analytics 4
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-ZDCBSXB151";
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "G-ZDCBSXB151");
-  }, []);
-
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       {/* Decorative background */}
@@ -101,6 +85,7 @@ function LandingPage() {
         <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-amber-200 blur-3xl opacity-5" />
         <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-slate-900 blur-3xl opacity-[0.03]" />
       </div>
+
       <div className="relative z-10">
         <Navbar />
         <main>
